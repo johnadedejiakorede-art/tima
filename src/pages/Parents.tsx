@@ -1,0 +1,346 @@
+import { Helmet } from "react-helmet-async";
+import Layout from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
+import { 
+  Shield, Eye, BookOpen, Heart, Users, Phone, Mail, 
+  MessageCircle, ClipboardCheck, Home, CheckCircle, DollarSign, HelpCircle
+} from "lucide-react";
+import { useState } from "react";
+
+const trustReasons = [
+  { icon: Shield, text: "Licensed by the Government of Alberta" },
+  { icon: Eye, text: "Regular home visits and safety checks" },
+  { icon: MessageCircle, text: "Transparent communication" },
+  { icon: BookOpen, text: "Educators supported with training and guidance" },
+  { icon: Home, text: "A nurturing, home-based environment" },
+];
+
+const expectations = [
+  "A safe, loving day home",
+  "Daily updates on your child's activities",
+  "Developmentally appropriate learning",
+  "A strong relationship with your educator",
+  "Support from the agency whenever you need it",
+];
+
+const registrationSteps = [
+  { step: 1, title: "Contact Us", description: "Reach out to discuss your child care needs and preferences." },
+  { step: 2, title: "Get Matched", description: "We match you with a licensed educator based on your requirements." },
+  { step: 3, title: "Visit the Day Home", description: "Tour the home, meet the educator, and ask questions." },
+  { step: 4, title: "Complete Registration", description: "Fill out paperwork and complete orientation." },
+  { step: 5, title: "Begin Care", description: "Your child starts in their new day home with confidence." },
+];
+
+const faqs = [
+  {
+    question: "Is Tima Family Day Home Agency licensed?",
+    answer: "Yes, we are fully licensed by the Government of Alberta. All our day homes meet or exceed provincial standards for safety, supervision, and early learning."
+  },
+  {
+    question: "How do you monitor day homes?",
+    answer: "We conduct regular visits, safety checks, and provide ongoing support to all our educators. This ensures consistent quality across all day homes in our network."
+  },
+  {
+    question: "Do you help with subsidy?",
+    answer: "Yes! We guide families through the Alberta Child Care Subsidy and Affordability Grants process, providing support with documentation and applications."
+  },
+  {
+    question: "What ages do you accept?",
+    answer: "Each educator sets their own age range, typically from 0 to 12 years. Contact us to find a day home that matches your child's age."
+  },
+];
+
+const Parents = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log("Form submitted:", formData);
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>For Parents | Find Licensed Day Home Care - Tima Family Day Home Agency</title>
+        <meta 
+          name="description" 
+          content="Find trusted, licensed family day home child care in Calgary and Cochrane. Learn about registration, subsidy options, and what to expect from Tima Family Day Home Agency." 
+        />
+        <meta name="keywords" content="day home Calgary, child care registration, Alberta child care subsidy, licensed day home near me, Cochrane family day home" />
+        <link rel="canonical" href="https://timadayhome.ca/parents" />
+      </Helmet>
+      <Layout>
+        {/* Hero Section */}
+        <section className="py-20 md:py-28 bg-gradient-hero">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+                For Parents
+              </span>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                Find the Perfect Day Home
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                Discover a licensed family day home where your child will be safe, 
+                happy, and thriving in a nurturing environment.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Parents Trust Us */}
+        <section className="py-20 md:py-28 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                  Trust & Safety
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+                  Why Parents Trust Us
+                </h2>
+                <div className="space-y-4">
+                  {trustReasons.map((reason, index) => (
+                    <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 border border-border/50">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <reason.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <span className="text-foreground font-medium">{reason.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-sm font-medium mb-4">
+                  What to Expect
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+                  Your Experience With Us
+                </h2>
+                <div className="space-y-3">
+                  {expectations.map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-primary shrink-0" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Registration Process */}
+        <section className="py-20 md:py-28 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                How to Register
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                Getting Started is Easy
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Follow these simple steps to find the perfect day home for your child.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-5 gap-4">
+                {registrationSteps.map((item, index) => (
+                  <div key={item.step} className="relative">
+                    <div className="text-center p-6 rounded-2xl bg-card border border-border/50 h-full">
+                      <div className="w-12 h-12 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 font-bold text-lg">
+                        {item.step}
+                      </div>
+                      <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                    </div>
+                    {index < registrationSteps.length - 1 && (
+                      <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 text-border">
+                        →
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Subsidy Information */}
+        <section className="py-20 md:py-28 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <div className="p-10 md:p-12 rounded-3xl bg-gradient-card border border-border/50 shadow-card">
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center shrink-0">
+                    <DollarSign className="w-8 h-8 text-accent" />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+                      Fee Subsidy Information
+                    </h2>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Families may qualify for Alberta Child Care Subsidy and Affordability Grants, 
+                      which can significantly reduce child care costs. We guide families through 
+                      the application process and provide support with all required documentation.
+                    </p>
+                    <Button variant="hero" asChild>
+                      <a href="#contact">Contact Us About Subsidy</a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-20 md:py-28 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <HelpCircle className="w-4 h-4 inline mr-2" />
+                FAQs
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                Frequently Asked Questions
+              </h2>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="p-6 rounded-2xl bg-card border border-border/50 hover:shadow-lg transition-all duration-300"
+                >
+                  <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                  <p className="text-muted-foreground">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form */}
+        <section id="contact" className="py-20 md:py-28 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-12">
+                <div>
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                    Contact Us
+                  </span>
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+                    We're Here to Help
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    Ready to find the perfect day home for your child? Have questions about 
+                    our programs or the registration process? We'd love to hear from you.
+                  </p>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Mail className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">Email</p>
+                        <a href="mailto:info@timadayhome.ca" className="text-foreground font-medium hover:text-primary transition-colors">
+                          info@timadayhome.ca
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Phone className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">Phone</p>
+                        <a href="tel:+14035551234" className="text-foreground font-medium hover:text-primary transition-colors">
+                          (403) 555-1234
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-8 rounded-3xl bg-card border border-border/50 shadow-card">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        rows={4}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
+                        placeholder="Tell us about your child care needs..."
+                        required
+                      />
+                    </div>
+                    <Button variant="hero" size="lg" type="submit" className="w-full">
+                      Send Message
+                    </Button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Layout>
+    </>
+  );
+};
+
+export default Parents;
