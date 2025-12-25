@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/programs", label: "Programs" },
   { href: "/parents", label: "For Parents" },
   { href: "/educators", label: "For Educators" },
+  { href: "/blog", label: "Blog" },
 ];
 
 const Header = () => {
