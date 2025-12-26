@@ -22,7 +22,7 @@ const CTASection = () => {
                 Find a licensed family day home where your child will be safe, happy, and thriving.
               </p>
               <Button variant="hero" size="lg" asChild>
-                <Link to="/parents#contact" className="flex items-center gap-2">
+                <Link to="/parents" className="flex items-center gap-2">
                   Find a Day Home
                   <ArrowRight size={18} />
                 </Link>
@@ -44,7 +44,7 @@ const CTASection = () => {
                 Join a supportive agency that values your work and helps you succeed.
               </p>
               <Button variant="accent" size="lg" asChild>
-                <Link to="/educators#apply" className="flex items-center gap-2">
+                <Link to="/educators" className="flex items-center gap-2">
                   Become an Educator
                   <ArrowRight size={18} />
                 </Link>
