@@ -45,13 +45,13 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 animate-fade-up" style={{ animationDelay: "0.3s" }}>
             <Button variant="hero" size="xl" asChild>
-              <Link to="/parents#contact" className="flex items-center gap-2">
+              <Link to="/parents" className="flex items-center gap-2">
                 <Heart size={20} />
                 Find a Day Home
               </Link>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <Link to="/educators#apply" className="flex items-center gap-2">
+              <Link to="/educators" className="flex items-center gap-2">
                 <Sparkles size={20} />
                 Become an Educator
               </Link>
