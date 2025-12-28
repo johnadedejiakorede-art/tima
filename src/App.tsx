@@ -22,7 +22,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/tima">
+        <BrowserRouter basename={import.meta.env.PROD ? "/tima" : ""}>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
